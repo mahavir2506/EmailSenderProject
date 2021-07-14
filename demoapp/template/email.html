@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <script>
+        function ValidateEmail(mail) {
+            return true
+        }
+    </script>
+</head>
+
+<body>
+    <h1>
+        SEND AN EMAIL
+    </h1>
+    <form action="{% url 'sendanemail' %}" method="POST" onsubmit="return ValidateEmail()">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    TO
+                </td>
+                <td>
+                    <input type="email" name="toemail" id="">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea name="content" cols="30" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Send">
+                </td>
+                <td>
+                    <input type="reset" value="clear">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
